@@ -54,8 +54,8 @@ public class review {
 		// 또다른 방법 . 가장 큰수 부터 시작하기 
 		
 		int k = (a < b)? a : b ;
-		int gc2 = 1; // Ask
-		for(int i = k;  i >= 1; i-- ) {//Ask
+		int gc2 = n; // 수정
+		for(int i = k;  i >= 1; i-- ) {//
 			if(a % i == 0 && b % i == 0) {
 				gc2 = i;
 				break; // 최초의 참이 되는 순간
