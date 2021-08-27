@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- springEx01에 다시 만들었다. -->
+	<bean id="myPerson" class="springEx02.Person">
+			<!-- setter를 이용하여 값을 넣어줌 -->
+			<property name="name" value ="hello"/> <!--속성명을 적지만 실제로 가져오는 것은 setter가 가져오는것이기에 setter가 존재해 있어야 한다. -->
+			<property name="age" value ="200"/>
+			<property name="phone" ref ="phone"/> <!-- verson2 -->
+	</bean>
+	
+	<bean id="phone" class="springEx02.Phone"> <!--여기서 만든 객체를 스프링이 위에 주입시켜준것.  -->
+		<!-- 생성자를 이용해서 값을 넣어줌 -->
+		<constructor-arg value="samsumg"/>
+	</bean>
+
+</beans>

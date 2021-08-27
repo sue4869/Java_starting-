@@ -36,6 +36,12 @@
 		<input type="password" name="passwordConfirm" placeholder="비밀번호 확인"><br>
 		생년월일 : <input type="date" name="birthDate"><br>
 		<input type="submit" value="등록하기">
+<<<<<<< HEAD
+=======
+		
+		<!-- 서버로 데이터를 보낼때의 key값을 name이 그 역활을 한다.  -->
+		<!-- get: 어떤 페이지를 보내주세요. post : 어떤 데이터를 보내주세요.  -->
+>>>>>>> serve
 	</form> 
 </body>
 </html>

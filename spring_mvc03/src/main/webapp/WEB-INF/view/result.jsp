@@ -8,7 +8,11 @@
 </head>
 <body>
 	<!-- 쿼리 실행 -->
+<<<<<<< HEAD
 	<h1>user 정보를 등록했습니다</h1>
+=======
+	<h1>user 정보를 ${result}.</h1>
+>>>>>>> serve
 	<h2><a href="/user/input"> 등록화면으로 돌아가기</a></h2>
 	<h2><a href="/user/list"> 목록화면으로 돌아가기</a></h2>
 </body>

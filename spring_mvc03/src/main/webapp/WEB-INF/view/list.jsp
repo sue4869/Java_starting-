@@ -19,7 +19,12 @@
 				비밀번호 : ${user.password }<br>
 				생년월일 : ${user.birthDate } <br>
 				등록일: ${user.joinDate} <br>
+<<<<<<< HEAD
 				
+=======
+				<a href="/user/modify?id=${user.id }">수정</a> <!-- id를 파라미터 형태로 전달 -->
+				<a href="/user/delete?id=${user.id }">삭제</a>
+>>>>>>> serve
 			</fieldset>
 		</c:forEach>
 	</section>

@@ -1,5 +1,8 @@
 package springEx06;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class MissileAttack implements Attack {
 	
 	@Override

@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+<<<<<<< HEAD
+=======
+//필요한데이터만 받게 하는 클래스 ==> Model로 담겨서 return으로 보낸다
+>>>>>>> serve
 @Controller //spring으로 빈으로 등록시킴
 @RequestMapping("/user") //()안의 요청을 하면 springDispacher로 들어갔다가 이 주소에 맞는 컨트롤러를 찾는 것.
 public class UserController {
@@ -54,4 +58,77 @@ public class UserController {
 		
 		return "list"; //list를 화면에 보내준다
 	}
+<<<<<<< HEAD
+=======
+	
+	//수정요청
+	@GetMapping("/modify") //modify로 요청할때 수정 화면으로
+	public String modifyUser(int id, Model m) {
+		System.out.println("id :" +id);
+		//서비스를 이용하여 해당되는 user정보를 가져온다. 수정 전 상태(정보)를 확인하기 위해 꺼내는 단꼐
+		User user = userService.getUserById(id);
+		
+		//화면에 유저 정보를 보내기 위해 모델 객체에 담아준다. 
+		m.addAttribute("user",user);//user에 객체를 담아서 보내준 것이기때무네 modifyForm에도 user.id로 입력해야 한다. 그냥 id가 아니라
+		return "modifyForm";
+	}
+	
+	//수정하기
+	//정상이면 return result라서 정상인지 아닌지 판별도 가능하게 한다. 
+	@PostMapping("/modify")
+	public String modifyUser(User user, Model m) {
+		
+		//수정 결과에 대한 내용을 result에 담음
+		String result = userService.modifyUser(user);
+		
+		//결과내용을 화면에 보내줌
+		m.addAttribute("result", result);
+		
+		return "result";
+	}
+	
+	//삭제 요청
+	@GetMapping("/delete")
+	public String deleteUser(int id, Model m) {
+		User user = userService.getUserById(id);
+		
+		m.addAttribute("user", user);
+		
+		return "deleteForm";
+	}
+	
+	@PostMapping("/delete")
+	public String deleteUser(int id,String password, Model m) {
+		
+		String result = userService.deleteUserById(id,password);
+		
+		m.addAttribute("result",result);
+		
+		return "result";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+>>>>>>> serve
 }
