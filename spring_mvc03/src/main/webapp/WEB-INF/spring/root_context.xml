@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<!-- 공통으로 사룡할 빈들, 디비 등등 -->
+
+	<context:component-scan base-package="user">
+	<!-- 컨트롤러를 제외한 애들을 빈으로 등록 -->
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	
+	<!-- 디비 접속 관련 설정 -->
+	<!-- 디비 정보 properties 파일 로드 -->
+	<context:property-placeholder location="/WEB-INF/config/mysql_db.properties"/>
+	
+	<!-- 스프링 jdbc 연결. 스프링으로 디비 연결-->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${db.driverClass}"/>
+		<property name="url" value="${db.url}"/>
+		<property name="username" value="${db.username}"/>
+		<property name="password" value="${db.password}"/>
+	</bean>
+	
+	<!-- 마이바티스 설정 등록. xml과 어노테이션 방식으로 디비 연결-->
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="/WEB-INF/config/mybatis_config.xml"/>
+	</bean>
+	
+	<!-- 여기까지 마이바티스로 접속하는 거 -->
+	<!-- 이제 마이바티스의 매퍼를 빈으로 등록 . 설정파일-->
+	<mybatis-spring:scan base-package="user"/>
+		
+</beans>

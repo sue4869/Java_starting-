@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- mybatis를 쓰기위한 정의 문서 mybatis 사이트에서 가져오기-->
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd"> 
+ <!--                                     -->
+ <configuration>
+ 	<settings>
+ 	<!-- 디비의 _방식의 컬럼명을 자바의 카멜방식으로 매핑시켜주는 아이: select하면서 형태가 달라서 mapping이 안될까봐 해주는 것 -->
+ 		<setting name= "mapUnderscoreToCamelCase" value="true"/>
+ 	</settings>
+ </configuration>
